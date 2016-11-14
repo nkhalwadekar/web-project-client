@@ -50,8 +50,16 @@ $(document).ready(function(){
 
         var i;
         for(i=0; i<response.results.length; i++){
-          outputDiv.append("<div>" + response.results[i].body + "<div>");
+          var msgUser = response.results[i].user.username;
+          var msgBody = response.results[i].body;
+          var msgID = response.results[i].id;
+
+          outputDiv.append("<div id='message_" + msgID + "'><h4>"+msgUser+" said:</h4><p>" + msgBody + "</p><div><a class='reply_button' href='#'>Reply</a></div><div><hr />");
         }
+
+        $(".reply_button").click(function(){
+          alert("hi");
+        });
 
       }
     });
